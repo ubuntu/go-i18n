@@ -1,6 +1,7 @@
 package i18n_test
 
 import (
+	"fmt"
 	"io/fs"
 	"os"
 	"testing"
@@ -10,6 +11,16 @@ import (
 	"github.com/ubuntu/go-i18n"
 	"github.com/ubuntu/go-i18n/testdata/po"
 )
+
+func ExampleInitI18nDomain() {
+	i18n.InitI18nDomain("domain", nil)
+	fmt.Println(gotext.Get("some strings"))
+}
+
+func ExampleInitI18nDomain_embeddedFiles() {
+	i18n.InitI18nDomain("apt", po.Files)
+	fmt.Println(gotext.Get("unknown"))
+}
 
 func TestLanguageEnVariables(t *testing.T) {
 	tests := map[string]struct {
