@@ -38,6 +38,8 @@ var globalGotextConfig *gotextConfig
 func InitI18nDomain(domain string, poDir fs.FS) {
 	lang := getCurrentLanguage()
 	if lang == "C" {
+		// Reset previous configuration.
+		gotext.Configure("", "C", domain)
 		return
 	}
 
