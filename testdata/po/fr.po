@@ -1,0 +1,5 @@
+msgid "unknown"
+msgstr "inconnu from local"
+
+msgid "translation not in system apt"
+msgstr "traduction pas dans system apt"
