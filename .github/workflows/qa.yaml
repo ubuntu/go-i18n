@@ -32,11 +32,13 @@ jobs:
         with:
           go-version-file: go.mod
       - name: Run tests
+        shell: bash
         run: |
           set -eu
 
           go test -coverpkg=./... -coverprofile=/tmp/coverage.out -covermode=set ./...
       - name: Run tests (with race detector)
+        shell: bash
         run: |
           go test -race ./...
       - name: Upload coverage to Codecov

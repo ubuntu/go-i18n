@@ -93,7 +93,7 @@ func TestTranslations(t *testing.T) {
 			t.Setenv("LANGUAGE", tc.lang)
 
 			// Check that the system has the system translation available for running the tests.
-			if tc.localFS != nil {
+			if tc.localFS == nil {
 				if _, err := os.Lstat("/usr/share/locale/fr/LC_MESSAGES/apt.mo"); err != nil {
 					t.Skipf("apt translation is not available on the system: %v", err)
 				}
