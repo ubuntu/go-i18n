@@ -23,13 +23,15 @@ runs:
       shell: bash
       run: |
         # Generate pot and refresh *.po files
-        set -eu
+        set -eux
 
         # Split all entries in separate args
         entrypoints=""
         OLDIFS="${IFS}"
         IFS=','
-        for entry in ${{ inputs.entrypoints }} ; do
+        # We need to expand it in the for loop for IFS to be taken into account.
+        eps='${{ inputs.entrypoints }}'
+        for entry in ${eps} ; do
           if [ -z "${entrypoints}" ]; then
             entrypoints="${entry}"
             continue
