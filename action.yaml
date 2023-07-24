@@ -1,0 +1,41 @@
+name: "Update pot and po files"
+description: Update pot and po files using gotext.
+inputs:
+  domain:
+    description: Domain to attach translation to.
+    required: true
+  po-directory:
+    description: Directory containing pot and po files to update.
+    default: "po/"
+  entrypoints:
+    description: List of comma-separated entry points importing all other package paths to extract translation form.
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-go@v4
+      with:
+        go-version-file: go.mod
+        check-latest: true
+        cache: false
+    - name: Generate pot and refresh *.po files
+      shell: bash
+      run: |
+        # Generate pot and refresh *.po files
+        set -eu
+
+        # Split all entries in separate args
+        entrypoints=""
+        OLDIFS="${IFS}"
+        IFS=','
+        for entry in ${{ inputs.entrypoints }} ; do
+          if [ -z "${entrypoints}" ]; then
+            entrypoints="${entry}"
+            continue
+          fi
+          entrypoints="${entrypoints} ${entry}"
+        done
+        IFS="${OLDIFS}"
+
+        go run ${{ github.action_path }}/cmd/update-po/*.go "${{ inputs.domain }}" "${{ inputs.po-directory }}" ${entrypoints}
