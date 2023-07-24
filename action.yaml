@@ -38,4 +38,8 @@ runs:
         done
         IFS="${OLDIFS}"
 
-        go run ${{ github.action_path }}/cmd/update-po/*.go "${{ inputs.domain }}" "${{ inputs.po-directory }}" ${entrypoints}
+        cd ${{ github.action_path }}
+        go build ./cmd/update-po/
+        cd -
+
+        ${{ github.action_path }}/update-po "${{ inputs.domain }}" "${{ inputs.po-directory }}" ${entrypoints}
