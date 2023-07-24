@@ -25,7 +25,7 @@ func main() {
 
 	flag.Parse()
 	if len(flag.Args()) < 3 {
-		fmt.Fprintln(os.Stderr, "Missing input arguments")
+		fmt.Fprintln(os.Stderr, "ERROR: Missing input arguments")
 		flag.Usage()
 		os.Exit(2)
 	}
