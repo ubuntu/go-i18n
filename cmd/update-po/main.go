@@ -69,6 +69,9 @@ func i18nToPot(domain string, pkgs []string, potFile string, verbose bool) error
 			return fmt.Errorf("can't parse packages: %v", err)
 		}
 	}
+	if _, ok := data.Domains[domain]; !ok {
+		return fmt.Errorf("no strings marked up for i18n for %s", domain)
+	}
 
 	err := os.MkdirAll(filepath.Dir(potFile), os.ModePerm)
 	if err != nil {
