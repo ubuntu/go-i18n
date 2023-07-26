@@ -129,6 +129,8 @@ func updatePo(poPath, potPath string) error {
 		var newTrans gotext.Translation
 		if existingsTrans, ok := existingTranslations[id]; ok {
 			newTrans = *existingsTrans
+			// Update line references
+			newTrans.Refs = trans.Refs
 		} else {
 			newTrans = *trans
 		}
