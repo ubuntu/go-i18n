@@ -17,4 +17,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/leonelquinteros/gotext => github.com/didrocks/gotext v0.0.0-20230726111654-4d8518bd51b8
+replace github.com/leonelquinteros/gotext => github.com/didrocks/gotext v0.0.0-20230726144450-32d8905ea02e
