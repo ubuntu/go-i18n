@@ -3,7 +3,7 @@ module github.com/ubuntu/go-i18n
 go 1.20
 
 require (
-	github.com/leonelquinteros/gotext v1.5.3-0.20230718140014-1f7d156c36eb
+	github.com/leonelquinteros/gotext v1.5.3-0.20230829162019-37f474cfb069
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -16,5 +16,3 @@ require (
 	golang.org/x/tools v0.1.12 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-replace github.com/leonelquinteros/gotext => github.com/didrocks/gotext v0.0.0-20230726144450-32d8905ea02e
