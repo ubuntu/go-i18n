@@ -73,7 +73,7 @@ func i18nToPot(domain string, pkgs []string, potFile string, verbose bool) error
 		return fmt.Errorf("no strings marked up for i18n for %s", domain)
 	}
 
-	err := os.MkdirAll(filepath.Dir(potFile), os.ModePerm)
+	err := os.MkdirAll(filepath.Dir(potFile), 0700)
 	if err != nil {
 		return fmt.Errorf("failed to create output dir: %v", err)
 	}
