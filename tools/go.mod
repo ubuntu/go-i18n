@@ -1,4 +1,4 @@
-module github.com/ubuntu/adsys/tools
+module github.com/ubuntu/go-i18n/tools
 
 go 1.24.0
 
