@@ -1,6 +1,6 @@
 module github.com/ubuntu/go-i18n
 
-go 1.20
+go 1.23.10
 
 require (
 	github.com/leonelquinteros/gotext v1.5.3-0.20230829162019-37f474cfb069
